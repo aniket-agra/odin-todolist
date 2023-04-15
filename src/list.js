@@ -2,4 +2,5 @@
 
 addItem(Item)
 removeItem(Item)
+getItem(someID)
 viewList()
