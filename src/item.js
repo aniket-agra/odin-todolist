@@ -1,7 +1,7 @@
 // factory function to make items
 
 function createItem() {
-  let name, task, due, prior, project;
+  let name, task, due, prior, project, done = false;
   let setTitle = function (title) {
     name = title;
   }
@@ -29,6 +29,9 @@ function createItem() {
     setPriority(priority);
     setProject(project);
   }
+  let changeStatus = function () {
+    done = !done;
+  }
   let viewItem = function () {
     return {
       "Name" : name,
@@ -38,7 +41,7 @@ function createItem() {
       "Project" : project
     };
   }
-  return {setTitle, setDescription, setDueDate, setPriority, setProject, setDetails, viewItem};
+  return {setTitle, setDescription, setDueDate, setPriority, setProject, setDetails, changeStatus, viewItem};
 }
 
 export {createItem}
