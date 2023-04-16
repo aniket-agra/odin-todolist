@@ -6,7 +6,7 @@ function createItem() {
     name = title;
   }
   let setDescription = function (description) {
-    desc = description;
+    task = description;
   }
   let setDueDate = function (date) {
     due = date;
