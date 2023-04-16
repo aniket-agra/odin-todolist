@@ -17,6 +17,18 @@ function createItem() {
   let setProject = function (projectName) {
     project = projectName;
   }
+  let setDetails = function () {
+    let name = prompt("Enter title of task", "Title");    
+    let desc = prompt("Enter description of task", "Desc");
+    let dueDate = prompt("Enter due date of task", "0000");    
+    let priority = prompt("Enter priority (high, medium, low) of task", "NA");
+    let project = prompt("Enter project of task", "NA");  
+    setTitle(name);
+    setDescription(desc);
+    setDueDate(dueDate);
+    setPriority(priority);
+    setProject(project);
+  }
   let viewItem = function () {
     return {
       "Name" : name,
@@ -26,7 +38,7 @@ function createItem() {
       "Project" : project
     };
   }
-  return {setTitle, setDescription, setDueDate, setPriority, setProject, viewItem};
+  return {setTitle, setDescription, setDueDate, setPriority, setProject, setDetails, viewItem};
 }
 
 export {createItem}
