@@ -8,7 +8,7 @@ if (create === "1") {
     if (add === "1") 
       newList.addItem();
     if (add === "2") 
-      newList.viewList();
+      console.log(newList.viewList());
     add = prompt("Enter 1 to add an item to list, 2 to view , 3 to exit");
   }
 }

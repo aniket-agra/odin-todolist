@@ -9,10 +9,10 @@ function createList() {
     list.push(item);
   }
   let viewList = function () {
+    let returnList = [];
     if (list.length > 0)
-      list.forEach(e => console.log(e.viewItem()));
-    else
-      return list;
+      list.forEach(e => returnList.push(e.viewItem()));
+    return returnList;
   }
   // removeItem(item)
   // getItem(someID)
