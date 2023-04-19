@@ -8,15 +8,32 @@ function createList() {
     item.setDetails();  
     list.push(item);
   }
+
   let viewList = function () {
     let returnList = [];
     if (list.length > 0)
       list.forEach(e => returnList.push(e.viewItem()));
     return returnList;
   }
-  // removeItem(item)
-  // getItem(someID)
-  return {addItem, viewList};
+
+  let removeItem = function (title) {
+    let newList = []
+    for (let indx in list) {
+      if (list[indx].getTitle() === title) {
+        newList = list.slice(0, indx).concat(list.slice(indx + 1, list.length));
+      }
+    }
+    list = newList;
+  }
+
+  let getItem = function (title) {
+    for (let indx in list) {
+      if (list[indx].getTitle() === title)
+        return list[indx];
+    }
+    return null;
+  }
+  return {addItem, removeItem, getItem, viewList};
 }
 
 export {createList}
