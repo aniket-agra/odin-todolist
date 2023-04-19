@@ -1,7 +1,7 @@
 // factory function to make items
 
 function createItem() {
-  let name, task, due, prior, project, done = false;
+  let name, task, due, prior, project = "default", done = false;
   let setTitle = function (title) {
     name = title;
   }
