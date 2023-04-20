@@ -1,5 +1,7 @@
 import { createList } from "./list";
+import { displayController } from "./display";
 
+displayController().populateDisplay();
 let create = prompt("Enter 1 to create a list, 2 to do nothing");
 if (create === "1") {
   let newList = createList();
