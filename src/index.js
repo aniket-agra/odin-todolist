@@ -15,8 +15,9 @@ if (create !== "3") {
     newList = createList();
   if (create === "2") 
     newList = retrieveList();
-  let add = prompt("Enter 1 to add an item to list, 2 to view, 3 to remove item, 4 to exit");
-  while (add !== "4") {
+  let add = prompt("Enter 1 to add an item to list, 2 to view, 3 to remove item, "
+                    + "4 to save list, 5 to exit");
+  while (add !== "5") {
     if (add === "1") 
       newList.addItem();
     if (add === "2") 
@@ -25,6 +26,9 @@ if (create !== "3") {
       let deleteTitle = prompt("Enter title of task to delete");
       newList.removeItem(deleteTitle);
     }
-    add = prompt("Enter 1 to add an item to list, 2 to view, 3 to remove item, 4 to exit");
+    if (add === "4")
+      localStorage.setItem("userList", JSON.stringify(newList.viewList()));
+    add = prompt("Enter 1 to add an item to list, 2 to view, 3 to remove item, "
+                  + "4 to save list, 5 to exit");
   }
 }
