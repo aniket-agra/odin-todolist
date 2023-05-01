@@ -44,21 +44,33 @@ function createItem() {
     setPriority(priority);
     setProject(project);
   }
+
+  let setStatus = function (status) {
+    done = status;
+  }
+
+  let getStatus = function () {
+    return done;
+  }
+
   let changeStatus = function () {
     done = !done;
   }
+
   let viewItem = function () {
     return {
       "Name" : name,
       "Task" : task,
       "Due Date" : due,
       "Priority" : prior,
-      "Project" : project
+      "Project" : project,
+      "Status" : done
     };
   }
   return {getTitle, setTitle, getDescription, setDescription, 
           getDueDate, setDueDate, getPriority, setPriority, 
-          getProject, setProject, setDetails, changeStatus, viewItem};
+          getProject, setProject, setDetails, getStatus, setStatus, 
+          changeStatus, viewItem};
 }
 
 export {createItem}

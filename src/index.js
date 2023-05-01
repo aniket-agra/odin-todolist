@@ -5,7 +5,18 @@ import { displayController } from "./display";
 displayController().populateDisplay();
 function retrieveList() {
   let retrieved = JSON.parse(localStorage.getItem("userList"));
-  
+  let retrievedList = createList();
+  for (let i = 0; i < retrieved.length; i++) {
+    let item = createItem();
+    item.setTitle(retrieved[i]["Name"]);
+    item.setDescription(retrieved[i]["Task"]);
+    item.setDueDate(retrieved[i]["Due Date"]);
+    item.setPriority(retrieved[i]["Priority"]);
+    item.setProject(retrieved[i]["Project"]);
+    item.setStatus(retrieved[i]["Status"]);
+    retrievedList.addItemObject(item);
+  }
+  return retrievedList;
 }
 
 let create = prompt("Enter 1 to create a list, 2 to retrieve stored list, 3 to exit");
