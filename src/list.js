@@ -9,6 +9,10 @@ function createList() {
     list.push(item);
   }
 
+  let addItemObject = function (item) {
+    list.push(item);
+  }
+
   let viewList = function () {
     let returnList = [];
     if (list.length > 0)
@@ -33,7 +37,7 @@ function createList() {
     }
     return null;
   }
-  return {addItem, removeItem, getItem, viewList};
+  return {addItem, addItemObject, removeItem, getItem, viewList};
 }
 
 export {createList}
