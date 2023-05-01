@@ -1,39 +1,39 @@
 // factory function to make lists
-import { createItem } from "./item";
+import { Item } from "./item";
 
-function createList() {
-  let list = [];
-  let addItem = function () {
-    const item = createItem();
-    item.setDetails();  
-    list.push(item);
-  }
-
-  let viewList = function () {
-    let returnList = [];
-    if (list.length > 0)
-      list.forEach(e => returnList.push(e.viewItem()));
-    return returnList;
-  }
-
-  let removeItem = function (title) {
-    let newList = []
-    for (let indx in list) {
-      if (list[indx].getTitle() === title) {
-        newList = list.slice(0, indx).concat(list.slice(indx + 1, list.length));
-      }
-    }
-    list = newList;
-  }
-
-  let getItem = function (title) {
-    for (let indx in list) {
-      if (list[indx].getTitle() === title)
-        return list[indx];
-    }
-    return null;
-  }
-  return {addItem, removeItem, getItem, viewList};
+function List() {
+  this.list = [];
 }
 
-export {createList}
+List.prototype.addItem = function () {
+  const item = new Item();
+  item.setDetails();  
+  this.list.push(item);
+}
+
+List.prototype.viewList = function () {
+  let returnList = [];
+  if (this.list.length > 0)
+    this.list.forEach(e => returnList.push(e.viewItem()));
+  return returnList;
+}
+
+List.prototype.removeItem = function (title) {
+  let newList = []
+  for (let indx in this.list) {
+    if (this.list[indx].getTitle() === title) {
+      newList = this.list.slice(0, indx).concat(this.list.slice(indx + 1, this.list.length));
+    }
+  }
+  this.list = newList;
+}
+
+List.prototype.getItem = function (title) {
+  for (let indx in this.list) {
+    if (this.list[indx].getTitle() === title)
+      return this.list[indx];
+  }
+  return null;
+}
+
+export {List}
