@@ -1,4 +1,5 @@
 import { createList } from "./list";
+import { createItem } from "./item";
 
 const displayController = function () {
   let newList;
