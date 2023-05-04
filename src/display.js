@@ -5,18 +5,22 @@ const displayController = function () {
   let newList;
   function retrieveList() {
     let retrieved = JSON.parse(localStorage.getItem("userList"));
-    let retrievedList = createList();
-    for (let i = 0; i < retrieved.length; i++) {
-      let item = createItem();
-      item.setTitle(retrieved[i]["Name"]);
-      item.setDescription(retrieved[i]["Task"]);
-      item.setDueDate(retrieved[i]["Due Date"]);
-      item.setPriority(retrieved[i]["Priority"]);
-      item.setProject(retrieved[i]["Project"]);
-      item.setStatus(retrieved[i]["Status"]);
-      retrievedList.addItemObject(item);
+    if (retrieved === null)
+      return null;
+    else {
+      let retrievedList = createList();
+      for (let i = 0; i < retrieved.length; i++) {
+        let item = createItem();
+        item.setTitle(retrieved[i]["Name"]);
+        item.setDescription(retrieved[i]["Task"]);
+        item.setDueDate(retrieved[i]["Due Date"]);
+        item.setPriority(retrieved[i]["Priority"]);
+        item.setProject(retrieved[i]["Project"]);
+        item.setStatus(retrieved[i]["Status"]);
+        retrievedList.addItemObject(item);
+      }
+      return retrievedList;
     }
-    return retrievedList;
   }
   const populateDisplay = function () {
     let body = document.querySelector("body");
@@ -24,9 +28,20 @@ const displayController = function () {
     btnDiv1.classList.add("startPageBtns");
     let createBtn = document.createElement("button");
     createBtn.textContent =  "Create New List";
+    createBtn.addEventListener("click", function (e) {
+      newList = createList();
+      btnDiv1.classList.add("hidden");
+    });
     btnDiv1.appendChild(createBtn);
     let retrieveBtn = document.createElement("button");
     retrieveBtn.textContent =  "Retrieve List from Local Storage";
+    retrieveBtn.addEventListener("click", function (e) {
+      newList = retrieveList();
+      if (newList === null) 
+        alert("Sorry, no stored list found. Please create a new list.");
+      else
+        btnDiv1.classList.add("hidden");
+    });
     btnDiv1.appendChild(retrieveBtn);
     body.appendChild(btnDiv1);
     let listDiv = document.createElement("div");
