@@ -56,9 +56,17 @@ const displayController = function () {
     saveBtn.textContent = "Save List";
     let exitBtn = document.createElement("button");
     exitBtn.textContent = "Exit and Return to Start Screen";
+    let deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "Delete stored list";
+    deleteBtn.addEventListener("click", function (e) {
+      localStorage.removeItem("userList");
+      btnDiv2.classList.add("hidden");
+      btnDiv1.classList.remove("hidden");
+    });
     btnDiv2.appendChild(addItemBtn);
     btnDiv2.appendChild(saveBtn);
     btnDiv2.appendChild(exitBtn);
+    btnDiv2.appendChild(deleteBtn);
     body.appendChild(btnDiv2);
   }
   return {populateDisplay};
