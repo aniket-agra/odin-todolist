@@ -27,11 +27,12 @@ const displayController = function () {
       return ;
     let list = newList.viewList();
     let listDiv = document.querySelector(".list");
-    for (let item in list) {
+    for (let indx in list) {
+      let item = list[indx];
       let itemDiv = document.createElement("div");
       itemDiv.classList.add("item");
       itemDiv.classList.add(`${item["Priority"]}`);
-      itemDiv.addEventListener("click", clickItem);
+      itemDiv.addEventListener("click", e => {});
       let itemDate = document.createElement("div");
       itemDate.classList.add("date");
       itemDate.textContent = item["Due Date"];
@@ -40,7 +41,7 @@ const displayController = function () {
       itemName.textContent = item["Name"];
       let delItem = document.createElement("div");
       delItem.textContent = "Delete";
-      delItem.addEventListener("click", deleteItem);
+      delItem.addEventListener("click", e => {});
       itemDiv.appendChild(itemDate);
       itemDiv.appendChild(itemName);
       itemDiv.appendChild(delItem);
