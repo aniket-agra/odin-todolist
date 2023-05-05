@@ -27,6 +27,7 @@ const displayController = function () {
       return ;
     let list = newList.viewList();
     let listDiv = document.querySelector(".list");
+    document.querySelectorAll(".list > *").forEach(e => e.remove());
     for (let indx in list) {
       let item = list[indx];
       let itemDiv = document.createElement("div");
@@ -78,6 +79,10 @@ const displayController = function () {
     btnDiv2.classList.add("belowListBtns");
     let addItemBtn = document.createElement("button");
     addItemBtn.textContent = "Add new item";
+    addItemBtn.addEventListener("click", function (e) {
+      newList.addItem();
+      displayList();
+    });
     let saveBtn = document.createElement("button");
     saveBtn.textContent = "Save List";
     let exitBtn = document.createElement("button");
