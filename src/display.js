@@ -62,7 +62,9 @@ const displayController = function () {
     createBtn.textContent =  "Create New List";
     createBtn.addEventListener("click", function (e) {
       newList = createList();
-      // btnDiv1.classList.add("hidden");
+      btnDiv1.classList.add("hidden");
+      btnDiv2.classList.remove("hidden");
+      listDiv.classList.remove("hidden");
     });
     btnDiv1.appendChild(createBtn);
     let retrieveBtn = document.createElement("button");
@@ -72,18 +74,20 @@ const displayController = function () {
       if (newList === null) 
         alert("Sorry, no stored list found. Please create a new list.");
       else {
-        // btnDiv1.classList.add("hidden");
         displayList();
+        btnDiv1.classList.add("hidden");
+        btnDiv2.classList.remove("hidden");
+        listDiv.classList.remove("hidden");
       }
     });
     btnDiv1.appendChild(retrieveBtn);
     body.appendChild(btnDiv1);
     let listDiv = document.createElement("div");
-    listDiv.classList.add("list");
+    listDiv.classList.add("list", "hidden");
     listDiv.textContent = "Here goes the list";
     body.appendChild(listDiv);
     let btnDiv2 = document.createElement("div");
-    btnDiv2.classList.add("belowListBtns");
+    btnDiv2.classList.add("belowListBtns", "hidden");
     let addItemBtn = document.createElement("button");
     addItemBtn.textContent = "Add new item";
     addItemBtn.addEventListener("click", function (e) {
@@ -99,8 +103,9 @@ const displayController = function () {
     deleteBtn.textContent = "Delete stored list";
     deleteBtn.addEventListener("click", function (e) {
       localStorage.removeItem("userList");
-      // btnDiv2.classList.add("hidden");
-      // btnDiv1.classList.remove("hidden");
+      btnDiv1.classList.remove("hidden");
+      btnDiv2.classList.add("hidden");
+      listDiv.classList.add("hidden");
     });
     btnDiv2.appendChild(addItemBtn);
     btnDiv2.appendChild(saveBtn);
