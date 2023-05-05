@@ -60,15 +60,29 @@ const displayController = function () {
     btnDiv1.classList.add("startPageBtns");
     let createBtn = document.createElement("button");
     createBtn.textContent =  "Create New List";
+    btnDiv1.appendChild(createBtn);
+    let retrieveBtn = document.createElement("button");
+    retrieveBtn.textContent =  "Retrieve List from Local Storage";
+    btnDiv1.appendChild(retrieveBtn);
+    body.appendChild(btnDiv1);
+    let listDiv = document.createElement("div");
+    listDiv.classList.add("list", "hidden");
+    listDiv.textContent = "Here goes the list";
+    body.appendChild(listDiv);
+    let btnDiv2 = document.createElement("div");
+    btnDiv2.classList.add("belowListBtns", "hidden");
+    let addItemBtn = document.createElement("button");
+    addItemBtn.textContent = "Add new item";
+    let saveBtn = document.createElement("button");
+    saveBtn.textContent = "Save List";
+    let deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "Delete stored list";
     createBtn.addEventListener("click", function (e) {
       newList = createList();
       btnDiv1.classList.add("hidden");
       btnDiv2.classList.remove("hidden");
       listDiv.classList.remove("hidden");
     });
-    btnDiv1.appendChild(createBtn);
-    let retrieveBtn = document.createElement("button");
-    retrieveBtn.textContent =  "Retrieve List from Local Storage";
     retrieveBtn.addEventListener("click", function (e) {
       newList = retrieveList();
       if (newList === null) 
@@ -80,29 +94,16 @@ const displayController = function () {
         listDiv.classList.remove("hidden");
       }
     });
-    btnDiv1.appendChild(retrieveBtn);
-    body.appendChild(btnDiv1);
-    let listDiv = document.createElement("div");
-    listDiv.classList.add("list", "hidden");
-    listDiv.textContent = "Here goes the list";
-    body.appendChild(listDiv);
-    let btnDiv2 = document.createElement("div");
-    btnDiv2.classList.add("belowListBtns", "hidden");
-    let addItemBtn = document.createElement("button");
-    addItemBtn.textContent = "Add new item";
     addItemBtn.addEventListener("click", function (e) {
       newList.addItem();
       displayList();
     });
-    let saveBtn = document.createElement("button");
-    saveBtn.textContent = "Save List";
     saveBtn.addEventListener("click", function (e) {
       localStorage.setItem("userList", JSON.stringify(newList.viewList()));
     });
-    let deleteBtn = document.createElement("button");
-    deleteBtn.textContent = "Delete stored list";
     deleteBtn.addEventListener("click", function (e) {
       localStorage.removeItem("userList");
+      document.querySelectorAll(".list > *").forEach(e => e.remove());
       btnDiv1.classList.remove("hidden");
       btnDiv2.classList.add("hidden");
       listDiv.classList.add("hidden");
