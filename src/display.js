@@ -93,8 +93,6 @@ const displayController = function () {
     saveBtn.addEventListener("click", function (e) {
       localStorage.setItem("userList", JSON.stringify(newList));
     });
-    let exitBtn = document.createElement("button");
-    exitBtn.textContent = "Exit and Return to Start Screen";
     let deleteBtn = document.createElement("button");
     deleteBtn.textContent = "Delete stored list";
     deleteBtn.addEventListener("click", function (e) {
