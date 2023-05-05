@@ -22,6 +22,31 @@ const displayController = function () {
       return retrievedList;
     }
   }
+  function displayList() {
+    if (newList === undefined)
+      return ;
+    let list = newList.viewList();
+    let listDiv = document.querySelector(".list");
+    for (let item in list) {
+      let itemDiv = document.createElement("div");
+      itemDiv.classList.add("item");
+      itemDiv.classList.add(`${item["Priority"]}`);
+      itemDiv.addEventListener("click", clickItem);
+      let itemDate = document.createElement("div");
+      itemDate.classList.add("date");
+      itemDate.textContent = item["Due Date"];
+      let itemName = document.createElement("div");
+      itemName.classList.add("name");
+      itemName.textContent = item["Name"];
+      let delItem = document.createElement("div");
+      delItem.textContent = "Delete";
+      delItem.addEventListener("click", deleteItem);
+      itemDiv.appendChild(itemDate);
+      itemDiv.appendChild(itemName);
+      itemDiv.appendChild(delItem);
+      listDiv.appendChild(itemDiv);
+    }
+  }
   const populateDisplay = function () {
     let body = document.querySelector("body");
     let btnDiv1 = document.createElement("div");
