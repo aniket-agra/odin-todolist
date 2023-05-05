@@ -90,6 +90,9 @@ const displayController = function () {
     });
     let saveBtn = document.createElement("button");
     saveBtn.textContent = "Save List";
+    saveBtn.addEventListener("click", function (e) {
+      localStorage.setItem("userList", JSON.stringify(newList));
+    });
     let exitBtn = document.createElement("button");
     exitBtn.textContent = "Exit and Return to Start Screen";
     let deleteBtn = document.createElement("button");
