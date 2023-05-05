@@ -40,7 +40,8 @@ const displayController = function () {
       let itemName = document.createElement("div");
       itemName.classList.add("name");
       itemName.textContent = item["Name"];
-      let delItem = document.createElement("div");
+      let delItem = document.createElement("button");
+      delItem.classList.add("delItem");
       delItem.textContent = "Delete";
       delItem.addEventListener("click", e => {});
       itemDiv.appendChild(itemDate);
