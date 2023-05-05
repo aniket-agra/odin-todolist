@@ -102,7 +102,6 @@ const displayController = function () {
     });
     btnDiv2.appendChild(addItemBtn);
     btnDiv2.appendChild(saveBtn);
-    btnDiv2.appendChild(exitBtn);
     btnDiv2.appendChild(deleteBtn);
     body.appendChild(btnDiv2);
   }
