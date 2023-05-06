@@ -31,8 +31,7 @@ const displayController = function () {
     for (let indx in list) {
       let item = list[indx];
       let itemDiv = document.createElement("div");
-      itemDiv.classList.add("item");
-      itemDiv.classList.add(`${item["Priority"]}`);
+      itemDiv.classList.add("item", `${item["Priority"]}`);
       itemDiv.addEventListener("click", e => {});
       let itemDate = document.createElement("div");
       itemDate.classList.add("date");
