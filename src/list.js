@@ -21,10 +21,10 @@ function createList() {
   }
 
   let removeItem = function (title) {
-    let newList = []
+    let newList = [];
     for (let indx in list) {
-      if (list[indx].getTitle() === title) {
-        newList = list.slice(0, indx).concat(list.slice(indx + 1, list.length));
+      if (list[indx].getTitle() !== title) {
+        newList.push(list[indx]);
       }
     }
     list = newList;

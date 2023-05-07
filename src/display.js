@@ -43,9 +43,10 @@ const displayController = function () {
       delItem.classList.add("delItem");
       delItem.textContent = "Delete";
       delItem.addEventListener("click", e => {
+        e.stopPropagation();
+        console.log(`${item["Name"]}`);
         newList.removeItem(`${item["Name"]}`);
         displayList();
-        e.stopPropagation();
       });
       itemDiv.appendChild(itemDate);
       itemDiv.appendChild(itemName);
