@@ -9,6 +9,24 @@ body {
     font-size: 1rem;
 }
 
+button {
+    font-size: 1rem;
+    background-color: rgb(0, 136, 255);
+    color: white;
+    padding: 0.5rem 1rem;
+    border: 2px solid rgb(0, 136, 255);
+    border-radius: 6px;
+}
+
+button:active {
+    background-color: rgba(0, 136, 255, 0.736);
+    border-color: rgba(0, 136, 255, 0.5);
+}
+
+button:hover {
+    scale: 1.05;
+}
+
 .startPageBtns {
     display: flex;
     justify-content: space-evenly;
