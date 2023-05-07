@@ -4,17 +4,34 @@
 
 body {
     min-height: 95vh;
+    background-color: rgb(91, 91, 91);
+    color: white;
 }
 
 .item {
     display: flex;
     justify-content: space-around;
+    padding: 0.5rem;
+    border-radius: 4px;
+    color: black;
+}
+
+.high {
+    background-color: rgb(255, 177, 177);
+}
+
+.medium {
+    background-color: rgb(255, 255, 177);
+}
+
+.low {
+    background-color: rgb(177, 255, 177);
 }
 
 .list {
     display: flex;
     flex-direction: column;
-    padding: 1rem 2rem;
+    margin: 1rem 10%;
 }
 
 .startPageBtns {
