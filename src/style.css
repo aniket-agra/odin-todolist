@@ -4,7 +4,7 @@
 
 body {
     min-height: 95vh;
-    background-color: rgb(91, 91, 91);
+    background-color: rgb(57, 57, 57);
     color: white;
 }
 
@@ -23,25 +23,38 @@ body {
 .list {
     display: flex;
     flex-direction: column;
-    margin: 1rem 10%;
+    width: 50%;
+    margin: auto;
 }
 
 .item {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     padding: 0.5rem;
-    border-radius: 4px;
+    border-radius: 12px;
     color: black;
+    border-left: 2px solid white;
+    border-right: 2px solid white;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+}
+
+.item:first-child {
+    border-top: 2px solid white;
+}
+
+.item:last-child {
+    border-bottom: 2px solid white;
 }
 
 .high {
-    background-color: rgb(255, 177, 177);
+    background-color: rgb(255, 120, 120);
 }
 
 .medium {
-    background-color: rgb(255, 255, 177);
+    background-color: rgb(255, 190, 87);
 }
 
 .low {
-    background-color: rgb(177, 255, 177);
+    background-color: rgb(117, 175, 117);
 }
