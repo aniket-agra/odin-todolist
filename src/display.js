@@ -39,9 +39,9 @@ const displayController = function () {
       let itemName = document.createElement("div");
       itemName.classList.add("name");
       itemName.textContent = item["Name"];
-      let delItem = document.createElement("button");
-      delItem.classList.add("delItem");
-      delItem.textContent = "Delete";
+      let delItem = document.createElement("div");
+      delItem.classList.add("delItem", "material-icons");
+      delItem.textContent = "delete";
       delItem.addEventListener("click", e => {
         e.stopPropagation();
         console.log(`${item["Name"]}`);
