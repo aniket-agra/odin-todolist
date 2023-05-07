@@ -67,9 +67,8 @@ const displayController = function () {
     let listDiv = document.createElement("div");
     listDiv.classList.add("list", "hidden");
     listDiv.textContent = "Here goes the list";
-    body.appendChild(listDiv);
     let btnDiv2 = document.createElement("div");
-    btnDiv2.classList.add("belowListBtns", "hidden");
+    btnDiv2.classList.add("listBtns", "hidden");
     let addItemBtn = document.createElement("button");
     addItemBtn.textContent = "Add new item";
     let saveBtn = document.createElement("button");
@@ -111,6 +110,7 @@ const displayController = function () {
     btnDiv2.appendChild(saveBtn);
     btnDiv2.appendChild(deleteBtn);
     body.appendChild(btnDiv2);
+    body.appendChild(listDiv);
   }
   return {populateDisplay};
 }
