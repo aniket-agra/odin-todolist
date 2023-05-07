@@ -8,6 +8,24 @@ body {
     color: white;
 }
 
+.startPageBtns {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 1rem 4rem;
+}
+
+.listBtns {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 1rem 4rem;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 10%;
+}
+
 .item {
     display: flex;
     justify-content: space-around;
@@ -26,22 +44,4 @@ body {
 
 .low {
     background-color: rgb(177, 255, 177);
-}
-
-.list {
-    display: flex;
-    flex-direction: column;
-    margin: 1rem 10%;
-}
-
-.startPageBtns {
-    display: flex;
-    justify-content: space-evenly;
-    padding: 1rem 4rem;
-}
-
-.listBtns {
-    display: flex;
-    justify-content: space-evenly;
-    padding: 1rem 4rem;
 }
