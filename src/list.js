@@ -21,33 +21,26 @@ function createList() {
       list.push(toAdd);
       return;
     }
-    let i = 0, itemDateStr, itemDate;
+    let i = 0, itemDateStr, itemDate, added = false;
     while (i < list.length) {
       itemDateStr = list[i].getDueDate();
       itemDate = new Date(itemDateStr.substring(4, itemDateStr.length), itemDateStr.substring(2, 4), itemDateStr.substring(0, 2));
-      if (itemDate < toAddDate) {
-        newList.push(list[i]);
-        i += 1;
+      if (toAddDate < itemDate && !added) {
+        newList.push(toAdd);
+        added = true;
       }
-      else 
-        break;
-    }
-    while (i < list.length) {
-      itemDateStr = list[i].getDueDate();
-      itemDate = new Date(itemDateStr.substring(4, itemDateStr.length), itemDateStr.substring(2, 4), itemDateStr.substring(0, 2));
-      let itemPriority = convertPriority(list[i].getPriority());
-      if ((itemDate.getTime() === toAddDate.getTime()) && (itemPriority > toAddPriority)) {
-        newList.push(list[i]);
-        i += 1;
+      if (itemDate.getTime() === toAddDate.getTime()) {
+        let itemPriority = convertPriority(list[i].getPriority());
+        if (itemPriority < toAddPriority && !added) {
+          newList.push(toAdd);
+          added = true;
+        }
       }
-      else 
-        break;
-    }
-    newList.push(toAdd);
-    while (i < list.length) {
       newList.push(list[i]);
       i += 1;
     }
+    if (!added)
+      newList.push(toAdd);
     list = newList;
   }
 
