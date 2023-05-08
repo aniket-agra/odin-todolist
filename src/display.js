@@ -79,7 +79,6 @@ const displayController = function () {
     body.appendChild(btnDiv1);
     let listDiv = document.createElement("div");
     listDiv.classList.add("list", "hidden");
-    listDiv.textContent = "Here goes the list";
     let btnDiv2 = document.createElement("div");
     btnDiv2.classList.add("listBtns", "hidden");
     let addItemBtn = document.createElement("button");
