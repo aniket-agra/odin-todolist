@@ -35,7 +35,7 @@ function createItem() {
   let setDetails = function () {
     let name = prompt("Enter title of task", "Title");    
     let desc = prompt("Enter description of task", "Desc");
-    let dueDate = prompt("Enter due date of task", "0000");    
+    let dueDate = prompt("Enter due date of task (DDMMYYY)", "000000");    
     let priority = prompt("Enter priority (high, medium, low) of task", "NA");
     let project = prompt("Enter project of task", "NA");  
     setTitle(name);
