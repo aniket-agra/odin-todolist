@@ -12,29 +12,32 @@ function createList() {
     }
   }
 
+  let compareItems = function (item1, item2) {
+    let dateStr1 = item1.getDueDate(), dateStr2 = item2.getDueDate();
+    let date1 = new Date(dateStr1.substring(4, ), dateStr1.substring(2, 4), dateStr1.substring(0, 2));
+    let date2 = new Date(dateStr2.substring(4, ), dateStr2.substring(2, 4), dateStr2.substring(0, 2));
+    let priority1 = convertPriority(item1.getPriority()), priority2 = convertPriority(item2.getPriority());
+    if (date1 < date2) 
+      return 1;
+    else if ((date1.getTime() === date2.getTime()) && (priority1 > priority2))
+      return 1;
+    return -1;
+  }
+
   let addItemObject = function (toAdd) {
     let newList = [];
     let toAddDate = toAdd.getDueDate();
     toAddDate = new Date(toAddDate.substring(4, toAddDate.length), toAddDate.substring(2, 4), toAddDate.substring(0, 2));
-    let toAddPriority = convertPriority(toAdd.getPriority());
     if (list.length === 0) {
       list.push(toAdd);
       return;
     }
-    let i = 0, itemDateStr, itemDate, added = false;
+    let i = 0, added = false;
     while (i < list.length) {
-      itemDateStr = list[i].getDueDate();
-      itemDate = new Date(itemDateStr.substring(4, itemDateStr.length), itemDateStr.substring(2, 4), itemDateStr.substring(0, 2));
-      if (toAddDate < itemDate && !added) {
+      let compare = compareItems(toAdd, list[i]);
+      if (compare === 1 && !added) {
         newList.push(toAdd);
         added = true;
-      }
-      if (itemDate.getTime() === toAddDate.getTime()) {
-        let itemPriority = convertPriority(list[i].getPriority());
-        if (itemPriority < toAddPriority && !added) {
-          newList.push(toAdd);
-          added = true;
-        }
       }
       newList.push(list[i]);
       i += 1;
