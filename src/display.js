@@ -51,7 +51,19 @@ const displayController = function () {
       itemDiv.appendChild(itemDate);
       itemDiv.appendChild(itemName);
       itemDiv.appendChild(delItem);
-      listDiv.appendChild(itemDiv);
+      let projectName = item["Project"];
+      let projectDiv = document.querySelector(`.list .${projectName}`);
+      if (projectDiv === null) {
+        projectDiv = document.createElement("div");
+        projectDiv.classList.add("project", `${projectName}`);
+        let projectTitle = document.createElement("div");
+        projectTitle.textContent = `Project: ${projectName}`;
+        projectTitle.classList.add("projectTitle");
+        projectDiv.appendChild(projectTitle);
+        projectDiv.appendChild(itemDiv);
+        listDiv.appendChild(projectDiv);
+      }
+      projectDiv.appendChild(itemDiv);
     }
   }
   const populateDisplay = function () {
