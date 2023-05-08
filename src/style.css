@@ -29,8 +29,12 @@ button:hover {
 
 .startPageBtns {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     padding: 1rem 4rem;
+}
+
+.startPageBtns > button:first-child {
+    margin-right: 1rem;
 }
 
 .listBtns {
