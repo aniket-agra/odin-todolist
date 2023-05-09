@@ -121,6 +121,7 @@ const displayController = function () {
       listDiv.classList.add("hidden");
     });
     exitBtn.addEventListener("click", function (e) {
+      document.querySelectorAll(".list > *").forEach(e => e.remove());
       btnDiv1.remove("hidden");
       listDiv.add("hidden");
       btnDiv2.remove("hidden");
