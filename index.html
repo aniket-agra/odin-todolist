@@ -26,15 +26,23 @@
     
       <label for="status">Done</label>
       <input type = "checkbox" id = "status" name = "status" value = "done">
-  
-      <label for="priority">High</label>
-      <input type = "radio" id = "priority" name = "priority" value = "high">
-    
-      <label for="priority">Medium</label>
-      <input type = "radio" id = "priority" name = "priority" value = "medium">
-    
-      <label for="priority">Low</label>
-      <input type = "radio" id = "priority" name = "priority" value = "low">
+      
+      <div class="priorityLabel">Priority</div>
+
+      <div class="entry">
+        <input type = "radio" id = "priority" name = "priority" value = "high">
+        <label for="priority">High</label>
+      </div>
+      
+      <div class="entry">
+        <input type = "radio" id = "priority" name = "priority" value = "medium">
+        <label for="priority">Medium</label>
+      </div>
+
+      <div class="entry">
+        <input type = "radio" id = "priority" name = "priority" value = "low">
+        <label for="priority">Low</label>
+      </div>
     
       <button type="submit">Submit</button>
     </form>
