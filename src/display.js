@@ -2,7 +2,7 @@ import { createList } from "./list";
 import { createItem } from "./item";
 
 const displayController = function () {
-  let newList;
+  let newList, userInput = {};
   function retrieveList() {
     let retrieved = JSON.parse(localStorage.getItem("userList"));
     if (retrieved === null)
@@ -66,6 +66,22 @@ const displayController = function () {
       projectDiv.appendChild(itemDiv);
     }
   }
+  function hookForm() {
+    let formElem = document.querySelector("form");
+    let submitter = document.querySelector("form > button");
+    submitter.addEventListener("click", (e) => {
+      e.preventDefault();
+      let formData = new FormData(formElem);
+    });
+    
+    formElem.addEventListener("formdata", (e) => {
+      let formData = e.formData;
+      for (let pair of formData.entries()) {
+        userInput[pair[0]] = pair[1];
+      }
+    });
+  }
+
   const populateDisplay = function () {
     let body = document.querySelector("body");
     let btnDiv1 = document.createElement("div");
@@ -132,6 +148,7 @@ const displayController = function () {
     btnDiv2.appendChild(exitBtn);
     body.appendChild(btnDiv2);
     body.appendChild(listDiv);
+    hookForm();
   }
   return {populateDisplay};
 }
