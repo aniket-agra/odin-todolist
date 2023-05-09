@@ -87,6 +87,8 @@ const displayController = function () {
     saveBtn.textContent = "Save List";
     let deleteBtn = document.createElement("button");
     deleteBtn.textContent = "Delete stored list";
+    let exitBtn = document.createElement("button");
+    exitBtn.textContent = "Exit";
     createBtn.addEventListener("click", function (e) {
       newList = createList();
       btnDiv1.classList.add("hidden");
@@ -118,9 +120,15 @@ const displayController = function () {
       btnDiv2.classList.add("hidden");
       listDiv.classList.add("hidden");
     });
+    exitBtn.addEventListener("click", function (e) {
+      btnDiv1.remove("hidden");
+      listDiv.add("hidden");
+      btnDiv2.remove("hidden");
+    });
     btnDiv2.appendChild(addItemBtn);
     btnDiv2.appendChild(saveBtn);
     btnDiv2.appendChild(deleteBtn);
+    btnDiv2.appendChild(exitBtn);
     body.appendChild(btnDiv2);
     body.appendChild(listDiv);
   }
