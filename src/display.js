@@ -96,6 +96,7 @@ const displayController = function () {
       if (mode === "edit") {
 
       }
+      formElem.classList.add("hidden");
     });
   }
 
