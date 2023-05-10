@@ -110,7 +110,7 @@ const displayController = function () {
       if (mode === "edit") {
 
       }
-      formElem.classList.add("hidden");
+      document.querySelector(".form").classList.add("hidden");
     });
   }
 
