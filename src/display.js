@@ -69,8 +69,7 @@ const displayController = function () {
       projectDiv.appendChild(itemDiv);
     }
   }
-  function hookForm() {
-    let formElem = document.querySelector("form");
+  function setFormDefault() {
     let dateElem = document.querySelector("input#due");
     let month = new Date().getMonth() + 1;
     month = month < 10 ? `0${month}` : month;
@@ -78,6 +77,14 @@ const displayController = function () {
     date = date < 10 ? `0${date}` : date;
     let year = new Date().getFullYear();
     dateElem.setAttribute("value", `${year}-${month}-${date}`);
+    document.querySelector("input#title").setAttribute("value", "Title");
+    document.querySelector("input#desc").setAttribute("value", "Description");
+    document.querySelector("input#project").setAttribute("value", "Default");
+    document.querySelector("input#status").setAttribute("value", "done");
+  }
+  function hookForm() {
+    let formElem = document.querySelector("form");
+    setFormDefault();
     let submitter = document.querySelector("form > button");
     submitter.addEventListener("click", (e) => {
       e.preventDefault();
