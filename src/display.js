@@ -2,7 +2,7 @@ import { createList } from "./list";
 import { createItem } from "./item";
 
 const displayController = function () {
-  let newList, userInput = {};
+  let newList, mode;
   function retrieveList() {
     let retrieved = JSON.parse(localStorage.getItem("userList"));
     if (retrieved === null)
@@ -71,13 +71,18 @@ const displayController = function () {
     let submitter = document.querySelector("form > button");
     submitter.addEventListener("click", (e) => {
       e.preventDefault();
-      let formData = new FormData(formElem);
-    });
-    
+      new FormData(formElem);
+    });    
     formElem.addEventListener("formdata", (e) => {
-      let formData = e.formData;
+      let formData = e.formData, userInput = {};
       for (let pair of formData.entries()) {
         userInput[pair[0]] = pair[1];
+      }
+      if (mode === "add") {
+
+      }
+      if (mode === "edit") {
+
       }
     });
   }
@@ -123,7 +128,8 @@ const displayController = function () {
       }
     });
     addItemBtn.addEventListener("click", function (e) {
-      newList.addItem();
+      mode = "add";
+      document.querySelector(".form").classList.remove("hidden");
       displayList();
     });
     saveBtn.addEventListener("click", function (e) {
