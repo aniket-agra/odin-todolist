@@ -80,7 +80,7 @@ function createItem() {
   return {getTitle, setTitle, getDescription, setDescription, 
           getDueDate, setDueDate, getPriority, setPriority, 
           getProject, setProject, setDetails, getStatus, setStatus, 
-          changeStatus, viewItem};
+          changeStatus, viewItem, equals};
 }
 
 export {createItem}
