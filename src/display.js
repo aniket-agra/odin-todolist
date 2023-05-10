@@ -32,7 +32,10 @@ const displayController = function () {
       let item = list[indx];
       let itemDiv = document.createElement("div");
       itemDiv.classList.add("item", `${item["Priority"]}`);
-      itemDiv.addEventListener("click", e => {});
+      itemDiv.addEventListener("click", e => {
+        mode = "edit";
+        document.querySelector(".form").classList.remove("hidden");
+      });
       let itemDate = document.createElement("div");
       itemDate.classList.add("date");
       itemDate.textContent = item["Due Date"];
