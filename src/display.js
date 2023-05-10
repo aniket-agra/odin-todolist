@@ -87,6 +87,7 @@ const displayController = function () {
         item.setStatus(userInput["Status"] === "done");
         item.setProject(userInput["Project"]);
         newList.addItemObject(item);
+        mode = undefined;
         displayList();
       }
       if (mode === "edit") {
