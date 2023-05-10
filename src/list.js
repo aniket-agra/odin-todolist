@@ -13,9 +13,8 @@ function createList() {
   }
 
   let compareItems = function (item1, item2) {
-    let dateStr1 = item1.getDueDate(), dateStr2 = item2.getDueDate();
-    let date1 = new Date(dateStr1.substring(4, ), dateStr1.substring(2, 4), dateStr1.substring(0, 2));
-    let date2 = new Date(dateStr2.substring(4, ), dateStr2.substring(2, 4), dateStr2.substring(0, 2));
+    let date1 = new Date(item1.getDueDate());
+    let date2 = new Date(item2.getDueDate());
     let priority1 = convertPriority(item1.getPriority()), priority2 = convertPriority(item2.getPriority());
     if (date1 < date2) 
       return 1;
@@ -26,8 +25,7 @@ function createList() {
 
   let addItemObject = function (toAdd) {
     let newList = [];
-    let toAddDate = toAdd.getDueDate();
-    toAddDate = new Date(toAddDate.substring(4, toAddDate.length), toAddDate.substring(2, 4), toAddDate.substring(0, 2));
+    let toAddDate = new Date(toAdd.getDueDate());
     if (list.length === 0) {
       list.push(toAdd);
       return;

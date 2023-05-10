@@ -79,7 +79,15 @@ const displayController = function () {
         userInput[pair[0]] = pair[1];
       }
       if (mode === "add") {
-
+        let item = createItem();
+        item.setTitle(userInput["Title"]);
+        item.setDescription(userInput["Desc"]);
+        item.setDueDate(userInput["Due"]);
+        item.setPriority(userInput["Priority"]);
+        item.setStatus(userInput["Status"] === "done");
+        item.setProject(userInput["Project"]);
+        newList.addItemObject(item);
+        displayList();
       }
       if (mode === "edit") {
 
@@ -130,7 +138,6 @@ const displayController = function () {
     addItemBtn.addEventListener("click", function (e) {
       mode = "add";
       document.querySelector(".form").classList.remove("hidden");
-      displayList();
     });
     saveBtn.addEventListener("click", function (e) {
       localStorage.setItem("userList", JSON.stringify(newList.viewList()));
