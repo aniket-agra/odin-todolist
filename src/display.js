@@ -71,6 +71,13 @@ const displayController = function () {
   }
   function hookForm() {
     let formElem = document.querySelector("form");
+    let dateElem = document.querySelector("input#due");
+    let month = new Date().getMonth() + 1;
+    month = month < 10 ? `0${month}` : month;
+    let date = new Date().getDate();
+    date = date < 10 ? `0${date}` : date;
+    let year = new Date().getFullYear();
+    dateElem.setAttribute("value", `${year}-${month}-${date}`);
     let submitter = document.querySelector("form > button");
     submitter.addEventListener("click", (e) => {
       e.preventDefault();
