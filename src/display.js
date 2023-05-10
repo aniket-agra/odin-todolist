@@ -111,6 +111,7 @@ const displayController = function () {
 
       }
       document.querySelector(".form").classList.add("hidden");
+      setFormDefault();
     });
   }
 
