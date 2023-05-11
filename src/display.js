@@ -37,18 +37,18 @@ const displayController = function () {
         document.querySelector(".form").classList.remove("hidden");
       });
       let itemDate = document.createElement("div");
-      itemDate.classList.add("date");
-      itemDate.textContent = item["Due Date"];
+      itemDate.classList.add("due");
+      itemDate.textContent = item["Due"];
       let itemName = document.createElement("div");
-      itemName.classList.add("name");
-      itemName.textContent = item["Name"];
+      itemName.classList.add("title");
+      itemName.textContent = item["Title"];
       let delItem = document.createElement("div");
       delItem.classList.add("delItem", "material-icons");
       delItem.textContent = "delete";
       delItem.addEventListener("click", e => {
         e.stopPropagation();
-        console.log(`${item["Name"]}`);
-        newList.removeItem(`${item["Name"]}`);
+        console.log(`${item["Title"]}`);
+        newList.removeItem(`${item["Title"]}`);
         displayList();
       });
       itemDiv.appendChild(itemDate);
