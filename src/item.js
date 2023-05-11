@@ -59,9 +59,9 @@ function createItem() {
 
   let viewItem = function () {
     return {
-      "Name" : name,
-      "Task" : task,
-      "Due Date" : due,
+      "Title" : name,
+      "Desc" : task,
+      "Due" : due,
       "Priority" : prior,
       "Project" : project,
       "Status" : done
