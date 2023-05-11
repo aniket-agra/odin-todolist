@@ -2,7 +2,7 @@ import { createList } from "./list";
 import { createItem } from "./item";
 
 const displayController = function () {
-  let newList, mode;
+  let newList, mode, oldDetails = {};
   function retrieveList() {
     let retrieved = JSON.parse(localStorage.getItem("userList"));
     if (retrieved === null)
@@ -39,6 +39,7 @@ const displayController = function () {
       itemDiv.classList.add("item", `${item["Priority"]}`);
       itemDiv.addEventListener("click", e => {
         mode = "edit";
+        oldDetails = item;
         populateForm(item);
         document.querySelector(".form").classList.remove("hidden");
       });
