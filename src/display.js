@@ -102,6 +102,7 @@ const displayController = function () {
       for (let pair of formData.entries()) {
         userInput[pair[0]] = pair[1];
       }
+      userInput["Status"] = userInput["Status"] === "done";
       if (mode === "add") {
         let item = createItem();
         item.setTitle(userInput["Title"]);
