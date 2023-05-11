@@ -75,7 +75,20 @@ function createList() {
     }
     return null;
   }
-  return {addItem, addItemObject, removeItem, getItem, viewList};
+
+  let updateItem = function (oldDetails, newDetails) {
+    for (let indx in list) 
+      if (list[indx].equals(oldDetails)) {
+        let item = list[indx];
+        item.setTitle(newDetails["Title"]);
+        item.setDescription(newDetails["Desc"]);
+        item.setDueDate(newDetails["Due"]);
+        item.setPriority(newDetails["Priority"]);
+        item.setProject(newDetails["Project"]);
+        break;
+      }
+  }
+  return {addItem, addItemObject, removeItem, getItem, viewList, updateItem};
 }
 
 export {createList}
