@@ -115,7 +115,9 @@ const displayController = function () {
         displayList();
       }
       if (mode === "edit") {
-
+        newList.updateItem(oldDetails, userInput);
+        mode = undefined;
+        displayList();
       }
       document.querySelector(".form").classList.add("hidden");
       setFormDefault();
