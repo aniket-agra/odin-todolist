@@ -92,16 +92,11 @@ const displayController = function () {
   function hookForm() {
     let formElem = document.querySelector("form");
     setFormDefault();
-    let submitter = document.querySelector("form > button");
-    submitter.addEventListener("click", (e) => {
+    formElem.addEventListener("submit", function (e) {
       e.preventDefault();
-      new FormData(formElem);
-    });    
-    formElem.addEventListener("formdata", (e) => {
-      let formData = e.formData, userInput = {};
-      for (let pair of formData.entries()) {
+      let formData = new FormData(formElem), userInput = {};
+      for (let pair of formData)
         userInput[pair[0]] = pair[1];
-      }
       userInput["Status"] = userInput["Status"] === "done";
       if (mode === "add") {
         let item = createItem();
