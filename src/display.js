@@ -22,6 +22,11 @@ const displayController = function () {
       return retrievedList;
     }
   }
+  function populateForm(item) {
+    for (let key in item) 
+      if (key !== "Status") 
+        document.querySelector(`input#${key.toLowerCase()}`).value = item[key];
+  }
   function displayList() {
     if (newList === undefined)
       return ;
@@ -34,6 +39,7 @@ const displayController = function () {
       itemDiv.classList.add("item", `${item["Priority"]}`);
       itemDiv.addEventListener("click", e => {
         mode = "edit";
+        populateForm(item);
         document.querySelector(".form").classList.remove("hidden");
       });
       let itemDate = document.createElement("div");
