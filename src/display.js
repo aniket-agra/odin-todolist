@@ -116,6 +116,7 @@ const displayController = function () {
       }
       if (mode === "edit") {
         newList.updateItem(oldDetails, userInput);
+        oldDetails = {};
         mode = undefined;
         displayList();
       }
