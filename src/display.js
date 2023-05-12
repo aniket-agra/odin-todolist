@@ -179,9 +179,9 @@ const displayController = function () {
     });
     exitBtn.addEventListener("click", function (e) {
       document.querySelectorAll(".list > *").forEach(e => e.remove());
-      btnDiv1.remove("hidden");
-      listDiv.add("hidden");
-      btnDiv2.remove("hidden");
+      btnDiv1.classList.remove("hidden");
+      listDiv.classList.add("hidden");
+      btnDiv2.classList.remove("hidden");
     });
     btnDiv2.appendChild(addItemBtn);
     btnDiv2.appendChild(saveBtn);
