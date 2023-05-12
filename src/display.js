@@ -11,9 +11,9 @@ const displayController = function () {
       let retrievedList = createList();
       for (let i = 0; i < retrieved.length; i++) {
         let item = createItem();
-        item.setTitle(retrieved[i]["Name"]);
-        item.setDescription(retrieved[i]["Task"]);
-        item.setDueDate(retrieved[i]["Due Date"]);
+        item.setTitle(retrieved[i]["Title"]);
+        item.setDescription(retrieved[i]["Desc"]);
+        item.setDueDate(retrieved[i]["Due"]);
         item.setPriority(retrieved[i]["Priority"]);
         item.setProject(retrieved[i]["Project"]);
         item.setStatus(retrieved[i]["Status"]);
