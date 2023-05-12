@@ -181,7 +181,7 @@ const displayController = function () {
       document.querySelectorAll(".list > *").forEach(e => e.remove());
       btnDiv1.classList.remove("hidden");
       listDiv.classList.add("hidden");
-      btnDiv2.classList.remove("hidden");
+      btnDiv2.classList.add("hidden");
     });
     btnDiv2.appendChild(addItemBtn);
     btnDiv2.appendChild(saveBtn);
