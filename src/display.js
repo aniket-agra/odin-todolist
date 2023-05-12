@@ -23,9 +23,11 @@ const displayController = function () {
     }
   }
   function populateForm(item) {
-    for (let key in item) 
-      if (key !== "Status") 
+    for (let key in item) {
+      if (key !== "Status" && key !== "Priority") {
         document.querySelector(`input#${key.toLowerCase()}`).value = item[key];
+      }
+    }
   }
   function displayList() {
     if (newList === undefined)
