@@ -1,5 +1,5 @@
-const controlDisplay = function () {
+const start = function () {
 
 }
 
-export {controlDisplay};
+export {start};

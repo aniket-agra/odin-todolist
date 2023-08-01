@@ -1,7 +1,8 @@
 import { createItem } from "./item";
 import { createList } from "./list";
-import { populateDisplay } from "./display2";
-import { controlDisplay } from "./displayController";
+import { populatePage1 } from "./page1";
+import { populatePage2 } from "./page2";
+import { start } from "./displayController";
 import "./style.css"
 
-populateDisplay();
+start();
