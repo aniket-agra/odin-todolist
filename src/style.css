@@ -76,10 +76,11 @@ form > button {
     justify-self: start;
 }
 
-.startPageBtns {
-    display: flex;
-    justify-content: center;
-    padding: 1rem 4rem;
+body.page1 {
+    display: grid;
+    min-height: 80vh;
+    justify-items: center;
+    align-items: center;
 }
 
 .startPageBtns > button:first-child {
