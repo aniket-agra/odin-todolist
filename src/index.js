@@ -1,6 +1,7 @@
 import { createItem } from "./item";
 import { createList } from "./list";
-import { displayController } from "./display";
+import { populateDisplay } from "./display2";
+import { controlDisplay } from "./displayController";
 import "./style.css"
 
-displayController().populateDisplay();
+populateDisplay();
