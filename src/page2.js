@@ -29,6 +29,7 @@ const populatePage2 = function () {
             exitBtn.textContent = "Exit";
             btnsContainer.appendChild(exitBtn);
         }
+        bodyElem.appendChild(btnsContainer);
     }
     {
         let tasksContainer = document.createElement("div");
