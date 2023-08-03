@@ -1,6 +1,7 @@
 const populatePage1 = function () {
 
     let bodyElem = document.querySelector("body");
+    bodyElem.classList.remove("page1");
     bodyElem.classList.add("page1");
 
     {
