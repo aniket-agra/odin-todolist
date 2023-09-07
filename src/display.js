@@ -28,6 +28,7 @@ const displayController = function () {
         document.querySelector(`input#${key.toLowerCase()}`).value = item[key];
       }
     }
+    document.querySelector('input#status').checked = item["Status"];
   }
   function displayList() {
     if (newList === undefined)
@@ -42,6 +43,7 @@ const displayController = function () {
       itemDiv.addEventListener("click", e => {
         mode = "edit";
         oldDetails = item;
+        console.log(item);
         populateForm(item);
         document.querySelector(".form").classList.remove("hidden");
       });
@@ -99,7 +101,7 @@ const displayController = function () {
       let formData = new FormData(formElem), userInput = {};
       for (let pair of formData)
         userInput[pair[0]] = pair[1];
-      userInput["Status"] = userInput["Status"] === "done";
+      // userInput["Status"] = userInput["Status"] === "done";
       if (mode === "add") {
         let item = createItem();
         item.setTitle(userInput["Title"]);
