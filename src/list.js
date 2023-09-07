@@ -77,15 +77,21 @@ function createList() {
   }
 
   let updateItem = function (oldDetails, newDetails) {
+    let priorityChanged = false;
     for (let indx in list) 
       if (list[indx].equals(oldDetails)) {
         let item = list[indx];
         item.setTitle(newDetails["Title"]);
         item.setDescription(newDetails["Desc"]);
+        if (item.getDueDate() !== newDetails["Due"] || item.getPriority() !== newDetails["Priority"])
+          priorityChanged = true;
         item.setDueDate(newDetails["Due"]);
         item.setPriority(newDetails["Priority"]);
         item.setProject(newDetails["Project"]);
         break;
+      }
+      if (priorityChanged) {
+        //re-sort
       }
   }
   return {addItem, addItemObject, removeItem, getItem, viewList, updateItem};
