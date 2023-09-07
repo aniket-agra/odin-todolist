@@ -29,6 +29,7 @@ const displayController = function () {
       }
     }
     document.querySelector('input#status').checked = item["Status"];
+    document.querySelector(`input.${item["Priority"]}`).checked = true;
   }
   function displayList() {
     if (newList === undefined)
