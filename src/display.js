@@ -92,6 +92,7 @@ const displayController = function () {
     document.querySelector("input#desc").value = "Description";
     document.querySelector("input#project").value = "Default";
     document.querySelector("input#status").value = "done";
+    document.querySelector("#status").checked = false;
   }
   function hookForm() {
     let formElem = document.querySelector("form");
