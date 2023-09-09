@@ -50,6 +50,8 @@ const displayController = function () {
         oldDetails = item;
         console.log(item);
         populateForm(item);
+        document.querySelectorAll("body > *").forEach(s => s.style.opacity = "50%");
+        document.querySelector(".form").style.opacity = "100%";
         document.querySelector(".form").classList.remove("hidden");
       });
       let itemDate = document.createElement("div");
@@ -129,6 +131,7 @@ const displayController = function () {
         mode = undefined;
         displayList();
       }
+      document.querySelectorAll("body > *").forEach(s => s.style.opacity = "100%");
       document.querySelector(".form").classList.add("hidden");
       setFormDefault();
     });
@@ -176,6 +179,8 @@ const displayController = function () {
     });
     addItemBtn.addEventListener("click", function (e) {
       mode = "add";
+      document.querySelectorAll("body > *").forEach(s => s.style.opacity = "50%");
+      document.querySelector(".form").style.opacity = "100%";
       document.querySelector(".form").classList.remove("hidden");
     });
     saveBtn.addEventListener("click", function (e) {
