@@ -74,12 +74,7 @@ function createItem() {
   }
 
   let equals = function (object) {
-    let result = object["Title"] === this.getTitle();
-    result = result && (object["Desc"] === this.getDescription());
-    result = result && (object["Priority"] === this.getPriority());
-    result = result && (object["Project"] === this.getProject());
-    result = result && (new Date(object["Due"]).getTime() === new Date(this.getDueDate()).getTime());
-    return result;
+    return object["ID"] === this.getID();;
   }
 
   return {getTitle, setTitle, getDescription, setDescription, 

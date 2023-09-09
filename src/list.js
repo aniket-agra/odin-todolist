@@ -77,9 +77,9 @@ function createList() {
     list = newList;
   }
 
-  let getItem = function (title) {
+  let getItem = function (id) {
     for (let indx in list) {
-      if (list[indx].getTitle() === title)
+      if (list[indx].getID() === id)
         return list[indx];
     }
     return null;
