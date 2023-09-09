@@ -3,6 +3,7 @@ import { createItem } from "./item";
 
 const displayController = function () {
   let newList, mode, oldDetails = {};
+
   function retrieveList() {
     let retrieved = JSON.parse(localStorage.getItem("userList"));
     if (retrieved === null)
@@ -22,6 +23,7 @@ const displayController = function () {
       return retrievedList;
     }
   }
+
   function populateForm(item) {
     for (let key in item) {
       if (key !== "Status" && key !== "Priority" && key !== "ID") {
@@ -31,6 +33,7 @@ const displayController = function () {
     document.querySelector('input#status').checked = item["Status"];
     document.querySelector(`input.${item["Priority"]}`).checked = true;
   }
+
   function displayList() {
     if (newList === undefined)
       return ;
@@ -82,6 +85,7 @@ const displayController = function () {
       projectDiv.appendChild(itemDiv);
     }
   }
+
   function setFormDefault() {
     let dateElem = document.querySelector("input#due");
     let month = new Date().getMonth() + 1;
@@ -97,6 +101,7 @@ const displayController = function () {
     document.querySelector("#status").checked = false;
     document.querySelectorAll("input#priority").forEach(e => e.checked = false);
   }
+
   function hookForm() {
     let formElem = document.querySelector("form");
     setFormDefault();
@@ -197,6 +202,7 @@ const displayController = function () {
     body.appendChild(listDiv);
     hookForm();
   }
+  
   return {populateDisplay};
 }
 
