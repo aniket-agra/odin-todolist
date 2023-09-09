@@ -35,6 +35,7 @@ const displayController = function () {
     if (newList === undefined)
       return ;
     let list = newList.viewList();
+    console.log(list);
     let listDiv = document.querySelector(".list");
     document.querySelectorAll(".list > *").forEach(e => e.remove());
     for (let indx in list) {
@@ -59,8 +60,8 @@ const displayController = function () {
       delItem.textContent = "delete";
       delItem.addEventListener("click", e => {
         e.stopPropagation();
-        console.log(`${item["Title"]}`);
-        newList.removeItem(`${item["Title"]}`);
+        console.log(item);
+        newList.removeItem(item["ID"]);
         displayList();
       });
       itemDiv.appendChild(itemDate);

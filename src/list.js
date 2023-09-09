@@ -58,10 +58,19 @@ function createList() {
     return returnList;
   }
 
-  let removeItem = function (title) {
+  // let removeItem = function (title) {
+  //   let newList = [];
+  //   for (let indx in list) {
+  //     if (list[indx].getTitle() !== title) {
+  //       newList.push(list[indx]);
+  //     }
+  //   }
+  //   list = newList;
+  // }
+  let removeItem = function (id) {
     let newList = [];
     for (let indx in list) {
-      if (list[indx].getTitle() !== title) {
+      if (list[indx].getID() !== id) {
         newList.push(list[indx]);
       }
     }
