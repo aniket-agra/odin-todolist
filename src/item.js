@@ -1,7 +1,7 @@
 // factory function to make items
 
 function createItem() {
-  let name, task, due, prior, project = "default", done = false;
+  let name, task, due, prior, project = "default", done = false, id = crypto.randomUUID();
   let setTitle = function (title) {
     name = title;
   }
@@ -57,6 +57,10 @@ function createItem() {
     done = !done;
   }
 
+  let getID = function () {
+    return id;
+  }
+
   let viewItem = function () {
     return {
       "Title" : name,
@@ -64,7 +68,8 @@ function createItem() {
       "Due" : due,
       "Priority" : prior,
       "Project" : project,
-      "Status" : done
+      "Status" : done,
+      "ID" : id
     };
   }
 
@@ -80,7 +85,7 @@ function createItem() {
   return {getTitle, setTitle, getDescription, setDescription, 
           getDueDate, setDueDate, getPriority, setPriority, 
           getProject, setProject, setDetails, getStatus, setStatus, 
-          changeStatus, viewItem, equals};
+          changeStatus, getID, viewItem, equals};
 }
 
 export {createItem}
