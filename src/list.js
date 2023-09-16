@@ -102,14 +102,18 @@ function createList() {
       }
       if (priorityChanged) {
         //re-sort
-        let newList = [];
+        let newList = [], added = false;
         for (let indx in list) {
           if (list[indx].getID() !== updatedItem.getID()) {
-            if (compareItems(list[indx], updatedItem) < 0) 
+            if (compareItems(list[indx], updatedItem) < 0 && !added) {
               newList.push(updatedItem);
+              added = true;
+            } 
             newList.push(list[indx]);
           }            
         }
+        if (!added) 
+          newList.push(updatedItem);
         list = newList;
       }
   }
