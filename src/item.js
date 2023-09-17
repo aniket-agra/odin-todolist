@@ -77,10 +77,30 @@ function createItem() {
     return object["ID"] === this.getID();;
   }
 
+  let convertPriority = function (priority) {
+    switch (priority) {
+      case "high" : return 3;
+      case "medium" : return 2;
+      case "low" : return 1;
+      default : return 0;
+    }
+  }
+
+  let compareTo = function (item) {
+    let date1 = new Date(this.getDueDate());
+    let date2 = new Date(item.getDueDate());
+    let priority1 = convertPriority(this.getPriority()), priority2 = convertPriority(item.getPriority());
+    if (date1 < date2) 
+      return 1;
+    else if ((date1.getTime() === date2.getTime()) && (priority1 > priority2))
+      return 1;
+    return -1;
+  }
+
   return {getTitle, setTitle, getDescription, setDescription, 
           getDueDate, setDueDate, getPriority, setPriority, 
           getProject, setProject, setDetails, getStatus, setStatus, 
-          changeStatus, getID, viewItem, equals};
+          changeStatus, getID, viewItem, equals, compareTo};
 }
 
 export {createItem}
