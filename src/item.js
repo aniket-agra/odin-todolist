@@ -1,7 +1,7 @@
 // factory function to make items
 
 function createItem() {
-  let name, task, due, prior, project = "default", done = false, id = crypto.randomUUID();
+  let name, task, due, prior, project = "default", done = false, id;
   let setTitle = function (title) {
     name = title;
   }
